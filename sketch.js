@@ -18,6 +18,26 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//Create the Bodies Here.
    circle1=new circle(700,550);
@@ -28,11 +48,11 @@ function setup() {
 
 
    bar1=new bar(700,150,300,20);
-   rope1=new rope(circle1.body,bar1.body,-50*0,0)
-   rope2=new rope(circle2.body,bar1.body,-25*2,0)
-   rope3=new rope(circle3.body,bar1.body,-25*4,0)
-   rope4=new rope(circle4.body,bar1.body,2*25,0)
-   rope5=new rope(circle5.body,bar1.body,2*50,0)
+   rope1=new rope(circle1.body,{x:691,y:159});
+   rope2=new rope(circle2.body,{x:641,y:159})
+   rope3=new rope(circle3.body,{x:591,y:159})
+   rope4=new rope(circle4.body,{x:741,y:159})
+   rope5=new rope(circle5.body,{x:791,y:159})
 
 	Engine.run(engine);
   
@@ -60,7 +80,7 @@ function draw() {
  
 }
 
-function keyPressed() { 
-	if (keyCode === UP_ARROW) 
-	{ Matter.Body.applyForce(circle3.body,circle3.body.position,{x:65,y:-15}); } 
-} 
+
+	function mouseDragged(){
+    Matter.Body.setPosition(circle3.body,{x:mouseX,y:mouseY});
+  }
